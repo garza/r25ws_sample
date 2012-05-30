@@ -6,6 +6,9 @@
 <xsl:param name="session_id" select="''" />
 <xsl:param name="user_name" select="''" />
 
+<xsl:variable name="spaces_url" select="concat($base_url, 'spaces.xml?scope=extended&amp;query_id=463454&amp;session_id=', $session_id)"/>
+<xsl:variable name="spaces" select="document($spaces_url)" />
+
 <xsl:template match="/">
 <html>
 <head>
@@ -18,23 +21,15 @@
 			<div class="page-header">
 				<h2>My First Report with null.xml</h2>
 			</div>
-
-			<xsl:apply-templates />
-
 		</section>
 
 		<footer class="footer"><p>
 			<xsl:if test="string-length($user_name) gt 0">Logged on as <xsl:value-of select="$user_name"/></xsl:if>
 		</p></footer>
-
-	</div><!-- end container -->
-	<script src="/r25ws/spomecs/js/jquery-1.7.2.min.js" type="text/javascript"></script>
-	<script src="/r25ws/spomecs/js/spomecs.js" type="text/javascript"></script>
+	</div>
 </body>
 
 </html>
 </xsl:template>
-
-
 
 </xsl:stylesheet>
