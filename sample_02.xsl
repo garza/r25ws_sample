@@ -20,14 +20,8 @@
 			</div>
 			<div class="row"><div class="span9">
 			<table class="table table-bordered table-striped">
-				<colgroup>
-					<col class="span1"/><col class="span3"/><col class="span5"/>
-				</colgroup>
-				<thead>
-				<tr>
-					<td>space id</td><td>name</td><td>formal name</td>
-				</tr>
-				</thead>
+				<colgroup><col class="span1"/><col class="span3"/><col class="span5"/></colgroup>
+				<thead><tr><td>space id</td><td>name</td><td>formal name</td></tr></thead>
 				<tbody>
 <xsl:for-each select="$spaces/r25:spaces/r25:space">
 				<tr>
@@ -38,7 +32,6 @@
 </xsl:for-each>
 				</tbody>
 			</table>
-			
 			</div></div>
 		</section>
 

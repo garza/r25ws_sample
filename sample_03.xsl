@@ -20,18 +20,17 @@
 			</div>
 			<div class="row"><div class="span9">
 			<table class="table table-bordered table-striped">
-				<colgroup>
-					<col class="span1"/><col class="span3"/><col class="span5"/>
-				</colgroup>
-				<thead>
-				<tr>
-					<td>space id</td><td>name</td><td>formal name</td>
-				</tr>
-				</thead>
+				<colgroup><col class="span1"/><col class="span3"/><col class="span5"/></colgroup>
+				<thead><tr><td>space id</td><td>name</td><td>formal name</td></tr></thead>
 				<tbody>
 <xsl:for-each select="$spaces/r25:spaces/r25:space">
 				<tr>
-					<td><xsl:value-of select="./r25:space_id"/></td>
+					<td><input>
+						<xsl:attribute name="type">button</xsl:attribute>
+						<xsl:attribute name="id">button</xsl:attribute>
+						<xsl:attribute name="name">space_id</xsl:attribute>
+						<xsl:attribute name="value"><xsl:value-of select="./r25:space_id"/></xsl:attribute>
+						</input></td>
 					<td><xsl:value-of select="./r25:space_name"/></td>
 					<td><xsl:value-of select="./r25:formal_name"/></td>
 				</tr>
@@ -39,13 +38,37 @@
 				</tbody>
 			</table>
 			
+			<table class="table table-bordered table-striped" id="events">
+				<colgroup><col class="span1"/><col class="span3"/><col class="span5"/></colgroup>
+				<thead><tr><td>Ref</td><td>Start</td><td>Name</td></tr></thead>
+				<tbody/>
+			</table>
 			</div></div>
 		</section>
-
 		<footer class="footer"><p>
 			<xsl:if test="string-length($user_name) gt 0">Logged on as <xsl:value-of select="$user_name"/></xsl:if>
 		</p></footer>
 	</div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript"><![CDATA[
+/* js code starts here */
+var event_url = "events.xml?contains=Orientation&cache=120&scope=simple&otransform=json.xsl&lint=T&simple=T&space_id=";
+$("#button").click(function(){
+	var space_id = $(this).val();
+	$.ajax({
+		type: "GET",
+		url: event_url + space_id,
+		dataType: "json",
+		context: this,
+		success: function(resp) {
+			$(resp.events.event).each(function(){
+				var row = '<tr><td>' + this.event_locator + '</td><td>' + this.start_date + '</td><td>' + this.event_name + '</td></tr>';
+				$("#events tbody").append(row);
+			});
+		}
+	});
+});		
+]]></script>
 </body>
 
 </html>
