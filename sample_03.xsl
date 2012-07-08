@@ -16,7 +16,7 @@
 	<div class="container">
 		<section id="gridSystem">
 			<div class="page-header">
-				<h2>My Second Report with null.xml</h2>
+				<h2>My Third Report with null.xml</h2>
 			</div>
 			<div class="row"><div class="span9">
 			<table class="table table-bordered table-striped">
