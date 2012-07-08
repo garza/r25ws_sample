@@ -14,7 +14,7 @@
 <head>
 	<link>
 		<xsl:attribute name="rel">stylesheet</xsl:attribute>
-		<xsl:attribute name="rel">http://utsa.edu/calendar/bootstrap/css/bootstrap.css</xsl:attribute>
+		<xsl:attribute name="href">http://utsa.edu/calendar/bootstrap/css/bootstrap.css</xsl:attribute>
 	</link>
 </head>
 <body>
