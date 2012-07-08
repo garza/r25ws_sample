@@ -21,7 +21,11 @@
 		</section>
 		<footer class="footer"><p>
 			<xsl:if test="string-length($user_name) gt 0">Logged on as <xsl:value-of select="$user_name"/></xsl:if>
-		</p></footer>
+		</p>
+		<p><a><xsl:attribute name="target">_blank</xsl:attribute>
+			<xsl:attribute name="href">https://raw.github.com/garza/r25ws_sample/master/sample_01.xsl</xsl:attribute>
+			source</a></p>
+	</footer>
 	</div>
 </body>
 
